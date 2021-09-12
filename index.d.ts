@@ -1,8 +1,17 @@
 // typescript 
 
 /**
- * Formats given <code>bytes</code> to human friendly format.
- * @param {number} bytes The bytes to be formatted.
- * @return {string} The formatted bytes as string.
+ * Transforms the first character of each word to uppercase; other
+ * characters are unaffected.
+ * @param {string} str The string to be transformed.
+ * @return {string} Returns transformed string.
+ * @see http://www.w3.org/wiki/CSS/Properties/text-transform
  */
-export declare function formatBytes(bytes: number): string;
+export declare function capitalize(str: string): string;
+
+/**
+ * Converts <code>str</code> to hashed string.
+ * @param {string} str The input string.
+ * @return {string} Returns hashed string.
+ */
+export declare function hash(str: string): string;
