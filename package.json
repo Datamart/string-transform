@@ -1,0 +1,32 @@
+{
+  "name": "string-transform",
+  "type": "module",
+  "version": "21.9.12",
+  "description": "String-transform module from Glize library.",
+  "homepage": "https://glize.js.org",
+  "repository": "github:Datamart/string-transform",
+  "license": "Apache-2.0",
+  "main": "./index.js",
+  "exports": "./index.js",
+  "types": "./index.d.ts",
+  "scripts": {
+    "test": "node ./index.tests.js"
+  },
+  "bugs": {
+    "url": "https://github.com/Datamart/string-transform/issues"
+  },
+  "author": {
+    "name": "Valentin Podkamennyi",
+    "email": "valentin@dtm.io",
+    "url": "https://vpodk.com/"
+  },
+  "keywords": [
+    "string-transform",
+    "text-transform",
+    "capitalize",
+    "glize"
+  ],
+  "dependencies": {
+    "uint": "latest"
+  }
+}
