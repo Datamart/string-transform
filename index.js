@@ -86,8 +86,7 @@ export const toCamelCase = (str) => {
  * @see https://en.wikipedia.org/wiki/Camel_case
  * @private
  */
-const toCamelCase_ = (str) => {
-  return str.replace(/[-_\s.]+(.)?/g, (...args) =>
+const toCamelCase_ = (str) =>
+  str.replace(/[-_\s.]+(.)?/g, (...args) =>
     args[1] ? args[1].toUpperCase() : ''
   );
-};
