@@ -10,7 +10,7 @@ npm install string-transform --save
 ```
 
 ```js
-import { capitalize, hash } from 'string-transform';
+import {capitalize, hash, toCamelCase, toPascalCase} from 'string-transform';
 
 /**
  * Transforms the first character of each word to uppercase; other
@@ -24,9 +24,28 @@ console.log(capitalize('test string')); // Test String
  * Converts <code>str</code> to hashed string.
  * @param {string} str The input string.
  * @return {string} Returns hashed string.
- * @method
  */
 console.log(hash('https://glize.js.org/')); // 4Q69R
+
+/**
+ * Converts the passed string into a string with the separator denoted by the 
+ * next word capitalized (aka lower camel case).
+ * @param {string} str The input string.
+ * @return {string} A string convered into a string with the separator 
+ * denoted by the next word capitalized.
+ * @see https://en.wikipedia.org/wiki/Camel_case
+ */
+console.log(toCamelCase('to-camel-case')); // toCamelCase
+
+/**
+ * Converts the passed string into a string of capitalized words without 
+ * separators (aka upper camel case).
+ * @param {string} str The input string.
+ * @return {string} A string convered into a string of capitalized words 
+ * without separators.
+ * @see https://en.wikipedia.org/wiki/PascalCase
+ */
+console.log(toPascalCase('to-pascal-case')); // ToPascalCase
 ```
 
 For more information please visit [Glize project page](https://glize.js.org).
