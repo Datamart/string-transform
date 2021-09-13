@@ -30,12 +30,12 @@ export const capitalize = (str) => {
 };
 
 /**
- * Converts <code>str</code> to hashed string.
+ * Converts the passed string to a hashed string.
  * @param {string} str The input string.
- * @return {string} Returns hashed string.
+ * @return {string} Returns a hashed string.
  * @method
  */
- export const hash =(str) => {
+export const hash =(str) => {
   const length = uint32(str.length);
   let result = 0;
   let j = 0;
@@ -47,4 +47,47 @@ export const capitalize = (str) => {
   }
 
   return result.toString(36).toUpperCase();
+};
+
+/**
+ * Converts the passed string into a string of capitalized words without 
+ * separators (aka upper camel case).
+ * @param {string} str The input string.
+ * @return {string} A string convered into a string of capitalized words 
+ * without separators.
+ * @see https://en.wikipedia.org/wiki/PascalCase
+ * @method
+ */
+export const toPascalCase = (str) => {
+  str = toCamelCase_(str);
+  return str.substr(0, 1).toUpperCase() + str.substr(1);
+};
+
+/**
+ * Converts the passed string into a string with the separator denoted by the 
+ * next word capitalized (aka lower camel case).
+ * @param {string} str The input string.
+ * @return {string} A string convered into a string with the separator 
+ * denoted by the next word capitalized.
+ * @see https://en.wikipedia.org/wiki/Camel_case
+ * @method
+ */
+export const toCamelCase = (str) => {
+  str = toCamelCase_(str);
+  return str.substr(0, 1).toLowerCase() + str.substr(1);
+};
+
+/**
+ * Converts the passed string into a string with the separator denoted by the 
+ * next word capitalized. The case of the first letter will remain unchanged.
+ * @param {string} str The input string.
+ * @return {string} A string convered into a string with the separator 
+ * denoted by the next word capitalized.
+ * @see https://en.wikipedia.org/wiki/Camel_case
+ * @private
+ */
+const toCamelCase_ = (str) => {
+  return str.replace(/[-_\s.]+(.)?/g, (...args) =>
+    args[1] ? args[1].toUpperCase() : ''
+  );
 };
