@@ -35,3 +35,19 @@ export declare function toPascalCase(str: string): string;
  * @see https://en.wikipedia.org/wiki/Camel_case
  */
 export declare function toCamelCase(str: string): string;
+
+/**
+* Converts the given string into a string with a single underscore as a separator.
+* @param {string} str The input string.
+* @return {string} A convered string.
+* @see https://en.wikipedia.org/wiki/Snake_case
+*/
+export declare function toSnakeCase(str: string): string;
+
+/**
+ * Converts the given string into a string with a single dash as a separator.
+ * @param {string} str The input string.
+ * @return {string} A convered string.
+ */
+ export declare function toKebabCase(str: string): string;
+ 
