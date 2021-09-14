@@ -1,7 +1,7 @@
 {
   "name": "string-transform",
   "type": "module",
-  "version": "21.9.17",
+  "version": "21.9.18",
   "description": "String-transform module from Glize library.",
   "homepage": "https://glize.js.org",
   "repository": "github:Datamart/string-transform",
