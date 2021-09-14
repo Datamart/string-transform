@@ -18,6 +18,7 @@ import {
   toPascalCase,
   toSnakeCase,
 } from 'string-transform';
+
 /**
  * Transforms the first character of each word to uppercase; other
  * characters are unaffected.
