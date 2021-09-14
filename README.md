@@ -10,8 +10,14 @@ npm install string-transform --save
 ```
 
 ```js
-import {capitalize, hash, toCamelCase, toPascalCase} from 'string-transform';
-
+import {
+  capitalize,
+  hash,
+  toCamelCase,
+  toKebabCase,
+  toPascalCase,
+  toSnakeCase,
+} from 'string-transform';
 /**
  * Transforms the first character of each word to uppercase; other
  * characters are unaffected.
@@ -46,6 +52,21 @@ console.log(toCamelCase('to-camel-case')); // toCamelCase
  * @see https://en.wikipedia.org/wiki/PascalCase
  */
 console.log(toPascalCase('to-pascal-case')); // ToPascalCase
+
+/**
+ * Converts the given string into a string with a single underscore as a separator.
+ * @param {string} str The input string.
+ * @return {string} A convered string.
+ * @see https://en.wikipedia.org/wiki/Snake_case
+ */
+console.log(toSnakeCase('toSnakeCase')); // to_snake_case
+
+/**
+ * Converts the given string into a string with a single dash as a separator.
+ * @param {string} str The input string.
+ * @return {string} A convered string.
+ */
+console.log(toKebabCase('toKebabCase')); // to-kebab-case
 ```
 
 For more information please visit [Glize project page](https://glize.js.org).
