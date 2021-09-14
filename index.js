@@ -114,6 +114,7 @@ const toCamelCase_ = (str, isUpperCamelCase) => {
  * Converts the given string into special case style.
  * @param {string} str The input string.
  * @param {string} separator The separator to apply.
+ * @return {string} A string convered into special case style.
  * @see https://en.wikipedia.org/wiki/Letter_case#Special_case_styles
  * @private
  */
