@@ -13,7 +13,7 @@ import { uint32 } from 'uint';
  * Transforms the first character of each word to uppercase; other
  * characters are unaffected.
  * @param {string} str The string to be transformed.
- * @return {string} Returns transformed string.
+ * @return {string} Returns a transformed string.
  * @see http://www.w3.org/wiki/CSS/Properties/text-transform
  * @method
  */
@@ -52,7 +52,7 @@ export const hash =(str) => {
 /**
  * Converts the given string into a string with a single dash as a separator.
  * @param {string} str The input string.
- * @return {string} A convered string.
+ * @return {string} Returns a transformed string.
  * @method
  */
 export const toKebabCase = (str) => toSpecialCase_(str, '-');
@@ -60,7 +60,7 @@ export const toKebabCase = (str) => toSpecialCase_(str, '-');
 /**
  * Converts the given string into a string with a single underscore as a separator.
  * @param {string} str The input string.
- * @return {string} A convered string.
+ * @return {string} Returns a transformed string.
  * @see https://en.wikipedia.org/wiki/Snake_case
  * @method
  */
@@ -70,7 +70,7 @@ export const toSnakeCase = (str) => toSpecialCase_(str, '_');
  * Converts the given string into a string of capitalized words without 
  * separators (aka upper camel case).
  * @param {string} str The input string.
- * @return {string} A string convered into a string of capitalized words 
+ * @return {string} A string transformed into a string of capitalized words 
  * without separators.
  * @see https://en.wikipedia.org/wiki/PascalCase
  * @method
@@ -81,7 +81,7 @@ export const toPascalCase = (str) => toCamelCase_(str, true);
  * Converts the given string into a string with the separator denoted by the 
  * next word capitalized (aka lower camel case).
  * @param {string} str The input string.
- * @return {string} A string convered into a string with the separator 
+ * @return {string} A string transformed into a string with the separator 
  * denoted by the next word capitalized.
  * @see https://en.wikipedia.org/wiki/Camel_case
  * @method
