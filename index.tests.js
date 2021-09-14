@@ -1,11 +1,13 @@
 import * as assert from 'assert';
-import {capitalize, hash, toCamelCase, toPascalCase} from 'string-transform';
+import {capitalize, hash, toKebabCase, toCamelCase, toPascalCase, toSnakeCase} from 'string-transform';
 
 const runTests = () => {
   testCapitalize();
   testHashString();
+  testToKebabCase();
   testToCamelCase();
   testToPascalCase();
+  testToSnakeCase();
 };
 
 const testCapitalize = () => {
@@ -15,6 +17,22 @@ const testCapitalize = () => {
 
 const testHashString = () => {
   assert.strictEqual('4Q69R', hash('https://glize.js.org/'));
+};
+
+const testToKebabCase = () => {
+  assert.strictEqual('to-kebab-case', toKebabCase('toKebabCase'));
+  assert.strictEqual('to-kebab-case', toKebabCase('to kebab case'));
+  assert.strictEqual('to-kebab-case', toKebabCase('to_kebab_case'));
+  assert.strictEqual('to-kebab-case', toKebabCase('to.kebab.case'));
+  assert.strictEqual('to-kebab-case', toKebabCase('to - Kebab case...'));
+};
+
+const testToSnakeCase = () => {
+  assert.strictEqual('to_snake_case', toSnakeCase('toSnakeCase'));
+  assert.strictEqual('to_snake_case', toSnakeCase('to snake case'));
+  assert.strictEqual('to_snake_case', toSnakeCase('to-snake-case'));
+  assert.strictEqual('to_snake_case', toSnakeCase('to.snake.case'));
+  assert.strictEqual('to_snake_case', toSnakeCase('to - Snake case...'));
 };
 
 const testToCamelCase = () => {

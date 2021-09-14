@@ -24,12 +24,14 @@
     "string-transform",
     "text-transform",
     "capitalize",
-    "camelcase",
-    "camel-case",
     "camel case",
-    "pascalcase",
-    "pascal-case",
+    "camelCase",
     "pascal case",
+    "PascalCase",
+    "kebab case",
+    "kebab-case",
+    "snake case",
+    "snake_case",
     "glize"
   ],
   "dependencies": {

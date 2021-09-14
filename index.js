@@ -50,7 +50,24 @@ export const hash =(str) => {
 };
 
 /**
- * Converts the passed string into a string of capitalized words without 
+ * Converts the given string into a string with a single dash as a separator.
+ * @param {string} str The input string.
+ * @return {string} A convered string.
+ * @method
+ */
+export const toKebabCase = (str) => toSpecialCase_(str, '-');
+
+/**
+ * Converts the given string into a string with a single underscore as a separator.
+ * @param {string} str The input string.
+ * @return {string} A convered string.
+ * @see https://en.wikipedia.org/wiki/Snake_case
+ * @method
+ */
+export const toSnakeCase = (str) => toSpecialCase_(str, '_');
+
+/**
+ * Converts the given string into a string of capitalized words without 
  * separators (aka upper camel case).
  * @param {string} str The input string.
  * @return {string} A string convered into a string of capitalized words 
@@ -58,13 +75,10 @@ export const hash =(str) => {
  * @see https://en.wikipedia.org/wiki/PascalCase
  * @method
  */
-export const toPascalCase = (str) => {
-  str = toCamelCase_(str);
-  return str.substr(0, 1).toUpperCase() + str.substr(1);
-};
+export const toPascalCase = (str) => toCamelCase_(str, true);
 
 /**
- * Converts the passed string into a string with the separator denoted by the 
+ * Converts the given string into a string with the separator denoted by the 
  * next word capitalized (aka lower camel case).
  * @param {string} str The input string.
  * @return {string} A string convered into a string with the separator 
@@ -72,21 +86,56 @@ export const toPascalCase = (str) => {
  * @see https://en.wikipedia.org/wiki/Camel_case
  * @method
  */
-export const toCamelCase = (str) => {
-  str = toCamelCase_(str);
-  return str.substr(0, 1).toLowerCase() + str.substr(1);
-};
+export const toCamelCase = (str) => toCamelCase_(str, false);
 
 /**
- * Converts the passed string into a string with the separator denoted by the 
- * next word capitalized. The case of the first letter will remain unchanged.
+ * Converts the given string into a string with the separator denoted by the 
+ * next word capitalized.
  * @param {string} str The input string.
+ * @param {boolean} isUpperCamelCase Specifies the type of transformation of
+ * the first letter.
  * @return {string} A string convered into a string with the separator 
  * denoted by the next word capitalized.
  * @see https://en.wikipedia.org/wiki/Camel_case
  * @private
  */
-const toCamelCase_ = (str) =>
-  str.replace(/[-_\s.]+(.)?/g, (...args) =>
+const toCamelCase_ = (str, isUpperCamelCase) => {
+  str = str.replace(/[-_\s.]+(.)?/g, (...args) =>
     args[1] ? args[1].toUpperCase() : ''
   );
+  return (
+    (isUpperCamelCase
+      ? str.substr(0, 1).toUpperCase()
+      : str.substr(0, 1).toLowerCase()) + str.substr(1)
+  );
+};
+
+/**
+ * Converts the given string into special case style.
+ * @param {string} str The input string.
+ * @param {string} separator The separator to apply.
+ * @see https://en.wikipedia.org/wiki/Letter_case#Special_case_styles
+ * @private
+ */
+const toSpecialCase_ = (str, separator) => {
+  return str
+    .split('')
+    .map((letter) => {
+      if (/[-_\s.]/.test(letter)) {
+        return separator;
+      }
+
+      if (letter.toUpperCase() === letter) {
+        return separator + letter.toLowerCase();
+      }
+
+      return letter;
+    })
+    .join('')
+    // Replacing multiple separators with the single separator.
+    .replace(new RegExp(separator + '+', 'g'), separator)
+    // Deleting the separator from the beginning of the string.
+    .replace(new RegExp('^' + separator), '')
+    // Deleting the separator at the end of the string.
+    .replace(new RegExp(separator + '$'), '');
+};
